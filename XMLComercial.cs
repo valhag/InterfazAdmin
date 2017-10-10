@@ -99,7 +99,7 @@ namespace InterfazAdmin
             List<string> lista = new List<string>();
 
             bool incluyetimbrado = true;
-           //lista = lrn.mGrabarDoctosComercial(1);
+            //lista = lrn.mGrabarDoctosComercial(1);
             if (lista.Count != 0)
             {
                 MessageBox.Show(lista[0].ToString());

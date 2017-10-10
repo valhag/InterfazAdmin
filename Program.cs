@@ -16,8 +16,8 @@ namespace InterfazAdmin
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FacturacionMasiva());
-            //Application.Run(new XMLComercial());
-            Application.Run(new Microplane());
+            Application.Run(new XMLComercial());
+            //Application.Run(new Microplane());
         }
     }
 }
