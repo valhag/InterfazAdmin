@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.empresasComercial1 = new Controles.EmpresasComercial();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.txtBD = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtServer = new System.Windows.Forms.TextBox();
+            this.empresasComercial1 = new Controles.EmpresasComercial();
             this.SuspendLayout();
             // 
             // label1
@@ -66,14 +66,6 @@
             this.comboBox1.Size = new System.Drawing.Size(346, 21);
             this.comboBox1.TabIndex = 43;
             // 
-            // empresasComercial1
-            // 
-            this.empresasComercial1.Location = new System.Drawing.Point(16, 11);
-            this.empresasComercial1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.empresasComercial1.Name = "empresasComercial1";
-            this.empresasComercial1.Size = new System.Drawing.Size(650, 54);
-            this.empresasComercial1.TabIndex = 42;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -96,7 +88,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(17, 358);
+            this.button1.Location = new System.Drawing.Point(17, 356);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(569, 23);
             this.button1.TabIndex = 45;
@@ -183,6 +175,14 @@
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(138, 20);
             this.txtServer.TabIndex = 48;
+            // 
+            // empresasComercial1
+            // 
+            this.empresasComercial1.Location = new System.Drawing.Point(16, 11);
+            this.empresasComercial1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.empresasComercial1.Name = "empresasComercial1";
+            this.empresasComercial1.Size = new System.Drawing.Size(650, 54);
+            this.empresasComercial1.TabIndex = 42;
             // 
             // Microplane
             // 

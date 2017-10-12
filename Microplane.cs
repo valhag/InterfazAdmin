@@ -116,6 +116,7 @@ namespace InterfazAdmin
 
             bool incluyetimbrado = true;
             //lista = lrn.mGrabarDoctosComercial(1);
+            lrn.mGrabarDoctosComercial(1);
             if (lista.Count != 0)
             {
                 MessageBox.Show(lista[0].ToString());
@@ -128,6 +129,15 @@ namespace InterfazAdmin
         private void button2_Click(object sender, EventArgs e)
         {
             string Cadenaconexion = "data source =" + txtServer.Text + ";initial catalog =" + txtBD.Text + ";user id = " + txtUser.Text + "; password = " + txtPass.Text + ";";
+
+            Properties.Settings.Default.serverOrigen = txtServer.Text;
+            Properties.Settings.Default.databaseOrigen = txtBD.Text;
+            Properties.Settings.Default.userOrigen = txtUser.Text;
+            Properties.Settings.Default.passwordO = txtPass.Text;
+
+            Properties.Settings.Default.Save();
+
+
             System.Data.SqlClient.SqlConnection _con = new System.Data.SqlClient.SqlConnection();
 
             _con.ConnectionString = Cadenaconexion;
