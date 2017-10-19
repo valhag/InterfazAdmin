@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using LibreriaDoctos;
 using System.IO;
+using System.Data.Odbc;
 
 namespace InterfazAdmin
 {
@@ -101,12 +102,15 @@ namespace InterfazAdmin
 
 
 
+            /*
             Properties.Settings.Default.serverOrigen = txtServer.Text;
             Properties.Settings.Default.databaseOrigen = txtBD.Text;
             Properties.Settings.Default.userOrigen = txtUser.Text;
             Properties.Settings.Default.passwordO = txtPass.Text;
+             */
 
 
+            Properties.Settings.Default.databaseOrigen = "DSN=" + textBox1.Text;
             Properties.Settings.Default.Save();
 
             //string archivo = textBox1.Text;
@@ -130,14 +134,32 @@ namespace InterfazAdmin
         {
             string Cadenaconexion = "data source =" + txtServer.Text + ";initial catalog =" + txtBD.Text + ";user id = " + txtUser.Text + "; password = " + txtPass.Text + ";";
 
-            Properties.Settings.Default.serverOrigen = txtServer.Text;
-            Properties.Settings.Default.databaseOrigen = txtBD.Text;
-            Properties.Settings.Default.userOrigen = txtUser.Text;
-            Properties.Settings.Default.passwordO = txtPass.Text;
+            string dsn = "DSN=" + @textBox1.Text;
 
+            OdbcConnection DbConnection = new OdbcConnection(dsn);
+            try
+            {
+                DbConnection.Open();
+                MessageBox.Show("Conexion Correcta");
+            }
+            catch(Exception eeeee)
+            {
+                MessageBox.Show("Revise datos de conexion " + eeeee.Message);
+                return;
+            }
+
+
+            Properties.Settings.Default.databaseOrigen = dsn;
             Properties.Settings.Default.Save();
 
+            /*Properties.Settings.Default.serverOrigen = txtServer.Text;
+            Properties.Settings.Default.databaseOrigen = txtBD.Text;
+            Properties.Settings.Default.userOrigen = txtUser.Text;
+            Properties.Settings.Default.passwordO = txtPass.Text;*/
 
+            
+
+            /*
             System.Data.SqlClient.SqlConnection _con = new System.Data.SqlClient.SqlConnection();
 
             _con.ConnectionString = Cadenaconexion;
@@ -152,6 +174,12 @@ namespace InterfazAdmin
             {
                 MessageBox.Show("Revise datos de conexion");
             }
+             * */
+        }
+
+        private void Microplane_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            lrn.mCerrarSdkComercial();
         }
     }
 }

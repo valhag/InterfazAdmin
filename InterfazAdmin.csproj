@@ -129,15 +129,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\newdll\dllnew\dllsnew\controles\Controles.csproj">
+    <ProjectReference Include="..\..\dllnew\dllnew\dllsnew\controles\Controles.csproj">
       <Project>{6cf8cdf6-bcea-4a14-9c1f-b48ab0d5ad76}</Project>
       <Name>Controles</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\newdll\dllnew\dllsnew\Interfaces\Interfaces.csproj">
+    <ProjectReference Include="..\..\dllnew\dllnew\dllsnew\Interfaces\Interfaces.csproj">
       <Project>{704e6595-e778-4b7d-907c-e850a3c85563}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\newdll\dllnew\dllsnew\LibreriaDoctos\LibreriaDoctos.csproj">
+    <ProjectReference Include="..\..\dllnew\dllnew\dllsnew\LibreriaDoctos\LibreriaDoctos.csproj">
       <Project>{48e88799-92db-4d7b-ab76-5452c4fedd67}</Project>
       <Name>LibreriaDoctos</Name>
     </ProjectReference>
