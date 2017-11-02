@@ -9,14 +9,16 @@ using System.Windows.Forms;
 using LibreriaDoctos;
 using System.IO;
 using System.Data.Odbc;
+using Interfaces;
 
 namespace InterfazAdmin
 {
-    public partial class Microplane : Form
+    public partial class Microplane : Form, IObservador
     {
 
         ClassRN lrn = new ClassRN();
         public string Cadenaconexion = "";
+        List<string> listaerrores = new List<string>();
 
         public Microplane()
         {
@@ -28,8 +30,27 @@ namespace InterfazAdmin
       "; password = " + Properties.Settings.Default.password + ";";
         }
 
+
+        public void Actualizar(double message)
+        {
+            //int x = int(message);
+           // this.progressBar1.Value = Convert.ToInt32(message);
+        }
+
+        public void Actualizar(string message)
+        {
+            //int x = int(message);
+            listaerrores.Add(message);
+        }
+
         private void Microplane_Load(object sender, EventArgs e)
         {
+
+            ISujeto lsujeto = lrn.lbd;
+            //IObservador lobs = (IObservador)this;
+            //lobs.Miforma = this;
+            lsujeto.Registrar(this);
+
             this.Text = " Interfaz Microplane " + " " + this.ProductVersion;
 
             txtServer.Text = Properties.Settings.Default.serverOrigen;
@@ -53,6 +74,9 @@ namespace InterfazAdmin
                 Form5 x = new Form5();
                 x.ShowDialog(this);
             }
+            botonExcel1.mSetearEtiqueta("Archivo Bitacora");
+            botonExcel1.mGeneraNombre(1);
+            botonExcel1.mAsignaTipo(1);
         }
 
         private void Microplane_Shown(object sender, EventArgs e)
@@ -121,13 +145,29 @@ namespace InterfazAdmin
             bool incluyetimbrado = true;
             //lista = lrn.mGrabarDoctosComercial(1);
             lrn.mGrabarDoctosComercial(1);
-            if (lista.Count != 0)
+            if (listaerrores.Count != 0)
             {
-                MessageBox.Show(lista[0].ToString());
+                MessageBox.Show("Existen errores por favor revise bitacora");
+                mGrabaErroresBitacora();
+
             }
             else
                 MessageBox.Show("Proceso Terminado");
             
+        }
+
+
+        private void mGrabaErroresBitacora()
+        {
+            StreamWriter objwriter = new StreamWriter(botonExcel1.mRegresarNombre());
+            foreach (string x in listaerrores)
+            { 
+                //abrir el arcvivo de bitacora
+                
+                objwriter.WriteLine(x);
+            }
+            objwriter.Flush();
+            objwriter.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
