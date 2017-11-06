@@ -34,7 +34,12 @@ namespace InterfazAdmin
         public void Actualizar(double message)
         {
             //int x = int(message);
-           // this.progressBar1.Value = Convert.ToInt32(message);
+            try
+            {
+                this.progressBar1.Value = Convert.ToInt32(message);
+            }
+            catch (Exception eeeeee)
+            { }
         }
 
         public void Actualizar(string message)
@@ -115,7 +120,8 @@ namespace InterfazAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            progressBar1.Value = 0;
+            listaerrores.Clear();
 
 
 
@@ -142,23 +148,33 @@ namespace InterfazAdmin
 
             List<string> lista = new List<string>();
 
-            bool incluyetimbrado = true;
-            //lista = lrn.mGrabarDoctosComercial(1);
-            lrn.mGrabarDoctosComercial(1);
-            if (listaerrores.Count != 0)
-            {
-                MessageBox.Show("Existen errores por favor revise bitacora");
-                mGrabaErroresBitacora();
+            
 
+            if (checkBox1.Checked == true)
+            {
+
+                bool incluyetimbrado = true;
+                //lista = lrn.mGrabarDoctosComercial(1);
+                lrn.mGrabarDoctosComercial(1);
+                if (listaerrores.Count != 0)
+                {
+                    MessageBox.Show("Existen errores por favor revise bitacora");
+                    mGrabaErroresBitacora();
+
+                }
+                else
+                    MessageBox.Show("Proceso Terminado");
             }
             else
-                MessageBox.Show("Proceso Terminado");
+                MessageBox.Show("Se leyeron " + lrn.lbd._RegDoctos.Count() + " documentos");
             
         }
 
 
         private void mGrabaErroresBitacora()
         {
+
+           // File.Delete(botonExcel1.mRegresarNombre());
             StreamWriter objwriter = new StreamWriter(botonExcel1.mRegresarNombre());
             foreach (string x in listaerrores)
             { 
