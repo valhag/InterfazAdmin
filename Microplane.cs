@@ -120,17 +120,17 @@ namespace InterfazAdmin
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             progressBar1.Value = 0;
             listaerrores.Clear();
 
 
 
             Properties.Settings.Default.Pass = textBox3.Text;
+            
             Properties.Settings.Default.RutaEmpresaADM = empresasComercial1.aliasbdd;
             RegConcepto Factura = (RegConcepto)comboBox1.SelectedItem;
             Properties.Settings.Default.Concepto = Factura.Codigo.Trim();
-
-
 
             /*
             Properties.Settings.Default.serverOrigen = txtServer.Text;
@@ -140,7 +140,7 @@ namespace InterfazAdmin
              */
 
 
-            Properties.Settings.Default.databaseOrigen = "DSN=" + textBox1.Text;
+            Properties.Settings.Default.databaseOrigen = "DSN=" + textBox1.Text + ";UID=Reports;Pwd=;";
             Properties.Settings.Default.Save();
 
             //string archivo = textBox1.Text;
@@ -190,7 +190,7 @@ namespace InterfazAdmin
         {
             string Cadenaconexion = "data source =" + txtServer.Text + ";initial catalog =" + txtBD.Text + ";user id = " + txtUser.Text + "; password = " + txtPass.Text + ";";
 
-            string dsn = "DSN=" + @textBox1.Text;
+            string dsn = "DSN=" + @textBox1.Text + ";UID=Reports;Pwd=;";
 
             OdbcConnection DbConnection = new OdbcConnection(dsn);
             try
