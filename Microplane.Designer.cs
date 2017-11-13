@@ -45,10 +45,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.botonExcel1 = new controles.BotonExcel();
-            this.empresasComercial1 = new Controles.EmpresasComercial();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.botonExcel1 = new controles.BotonExcel();
+            this.empresasComercial1 = new Controles.EmpresasComercial();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,7 +99,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(17, 353);
+            this.button1.Location = new System.Drawing.Point(17, 412);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(569, 23);
             this.button1.TabIndex = 45;
@@ -221,9 +225,64 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(30, 299);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(116, 17);
+            this.checkBox1.TabIndex = 61;
+            this.checkBox1.Text = "EnviarDocumentos";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(17, 369);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(569, 23);
+            this.progressBar1.TabIndex = 62;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(103, 243);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(72, 20);
+            this.textBox2.TabIndex = 63;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(24, 247);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 16);
+            this.label7.TabIndex = 64;
+            this.label7.Text = "Folio Inicial";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(223, 247);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 16);
+            this.label8.TabIndex = 66;
+            this.label8.Text = "Folio Final";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(302, 243);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(72, 20);
+            this.textBox4.TabIndex = 65;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
+            // 
             // botonExcel1
             // 
-            this.botonExcel1.Location = new System.Drawing.Point(30, 265);
+            this.botonExcel1.Location = new System.Drawing.Point(30, 321);
             this.botonExcel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.botonExcel1.Name = "botonExcel1";
             this.botonExcel1.Size = new System.Drawing.Size(532, 29);
@@ -237,28 +296,15 @@
             this.empresasComercial1.Size = new System.Drawing.Size(603, 54);
             this.empresasComercial1.TabIndex = 42;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(414, 219);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(116, 17);
-            this.checkBox1.TabIndex = 61;
-            this.checkBox1.Text = "EnviarDocumentos";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(17, 314);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(569, 23);
-            this.progressBar1.TabIndex = 62;
-            // 
             // Microplane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 398);
+            this.ClientSize = new System.Drawing.Size(625, 447);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.botonExcel1);
@@ -316,6 +362,10 @@
         private controles.BotonExcel botonExcel1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox4;
 
     }
 }

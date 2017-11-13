@@ -63,6 +63,9 @@ namespace InterfazAdmin
             txtUser.Text = Properties.Settings.Default.userOrigen;
             txtPass.Text = Properties.Settings.Default.passwordO;
 
+            textBox2.Text = Properties.Settings.Default.UltimoFolio;
+            textBox4.Text = "0";
+
 
             lrn.mSeteaDirectorio(Directory.GetCurrentDirectory());
 
@@ -144,18 +147,22 @@ namespace InterfazAdmin
             Properties.Settings.Default.Save();
 
             //string archivo = textBox1.Text;
-            lrn.mLlenarinfoMicroplane();
+
+            int lFolioInicial = int.Parse(textBox2.Text);
+            int lFolioFinal = int.Parse(textBox4.Text);
+            lrn.mLlenarinfoMicroplane(lFolioInicial, lFolioFinal);
 
             List<string> lista = new List<string>();
 
-            
 
+            long lultimofolio = 0;
             if (checkBox1.Checked == true)
             {
 
                 bool incluyetimbrado = true;
                 //lista = lrn.mGrabarDoctosComercial(1);
-                lrn.mGrabarDoctosComercial(1);
+                
+                lrn.mGrabarDoctosComercial(1, ref lultimofolio);
                 if (listaerrores.Count != 0)
                 {
                     MessageBox.Show("Existen errores por favor revise bitacora");
@@ -164,9 +171,19 @@ namespace InterfazAdmin
                 }
                 else
                     MessageBox.Show("Proceso Terminado");
+
+                Properties.Settings.Default.UltimoFolio = lultimofolio.ToString();
+                textBox2.Text = lultimofolio.ToString();
+                Properties.Settings.Default.Save();
+
             }
             else
+            {
                 MessageBox.Show("Se leyeron " + lrn.lbd._RegDoctos.Count() + " documentos");
+                Properties.Settings.Default.UltimoFolio = lultimofolio.ToString();
+                textBox2.Text = lultimofolio.ToString();
+                Properties.Settings.Default.Save();
+            }
             
         }
 
@@ -236,6 +253,46 @@ namespace InterfazAdmin
         private void Microplane_FormClosed(object sender, FormClosedEventArgs e)
         {
             lrn.mCerrarSdkComercial();
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }
