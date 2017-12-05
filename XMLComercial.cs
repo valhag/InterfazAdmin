@@ -123,6 +123,7 @@ namespace InterfazAdmin
 
             bool incluyetimbrado = true;
             long folio = 0;
+            listaerrores.Clear();
             lrn.mGrabarDoctosComercial(1, ref folio);
             if (listaerrores.Count != 0)
             {
@@ -161,6 +162,14 @@ namespace InterfazAdmin
             int hora = DateTime.Now.Hour;
             int minuto = DateTime.Now.Minute;
             //second = second + 1;
+            Properties.Settings.Default.RutaOrigen = textBox1.Text;
+            Properties.Settings.Default.RutaBien = textBox2.Text;
+            Properties.Settings.Default.RutaMal = textBox4.Text;
+
+
+            Properties.Settings.Default.Save();
+
+
             if (hora == numericUpDown1.Value && minuto == numericUpDown2.Value)
             {
                 mProcesar();
