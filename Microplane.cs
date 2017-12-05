@@ -63,6 +63,9 @@ namespace InterfazAdmin
             txtUser.Text = Properties.Settings.Default.userOrigen;
             txtPass.Text = Properties.Settings.Default.passwordO;
 
+
+            textBox1.Text = Properties.Settings.Default.DSN;
+
             textBox2.Text = Properties.Settings.Default.UltimoFolio;
             textBox4.Text = "0";
 
@@ -144,6 +147,7 @@ namespace InterfazAdmin
 
 
             Properties.Settings.Default.databaseOrigen = "DSN=" + textBox1.Text + ";UID=Reports;Pwd=;";
+            Properties.Settings.Default.DSN = textBox1.Text;
             Properties.Settings.Default.Save();
 
             //string archivo = textBox1.Text;
@@ -293,6 +297,12 @@ namespace InterfazAdmin
             {
                 e.Handled = true;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
+            Properties.Settings.Default.Save();
         }
     }
 }

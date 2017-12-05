@@ -18,6 +18,8 @@ namespace InterfazAdmin
             //Application.Run(new FacturacionMasiva());
             //Application.Run(new XMLComercial());
             Application.Run(new Microplane());
+
+            //Application.Run(new AmcoPedidos());
         }
     }
 }
