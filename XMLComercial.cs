@@ -98,7 +98,9 @@ namespace InterfazAdmin
                 x.ShowDialog(this);
             }
 
-
+            botonExcel1.mSetearEtiqueta("Archivo Bitacora");
+            botonExcel1.mGeneraNombre(1);
+            botonExcel1.mAsignaTipo(1);
             
             //
             
@@ -139,9 +141,9 @@ namespace InterfazAdmin
 
         private void mGrabaErroresBitacora()
         {
-
+            StreamWriter objwriter = new StreamWriter(botonExcel1.mRegresarNombre());
             // File.Delete(botonExcel1.mRegresarNombre());
-            StreamWriter objwriter = new StreamWriter(textBox5.Text);
+            //StreamWriter objwriter = new StreamWriter(textBox5.Text);
             foreach (string x in listaerrores)
             {
                 //abrir el arcvivo de bitacora
@@ -182,6 +184,11 @@ namespace InterfazAdmin
         {
             Properties.Settings.Default.Reset();
             Properties.Settings.Default.Save();
+        }
+
+        private void XMLComercial_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            lrn.mCerrarSdkComercial();
         }
     }
 }

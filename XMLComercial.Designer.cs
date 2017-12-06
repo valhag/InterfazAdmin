@@ -43,14 +43,14 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.empresasComercial1 = new Controles.EmpresasComercial();
             this.button3 = new System.Windows.Forms.Button();
+            this.empresasComercial1 = new Controles.EmpresasComercial();
+            this.botonExcel1 = new controles.BotonExcel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +65,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(23, 404);
+            this.button1.Location = new System.Drawing.Point(25, 370);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(618, 23);
             this.button1.TabIndex = 2;
@@ -184,6 +184,7 @@
             this.label6.Size = new System.Drawing.Size(144, 17);
             this.label6.TabIndex = 51;
             this.label6.Text = "Archivo para Bitacora";
+            this.label6.Visible = false;
             // 
             // textBox5
             // 
@@ -192,14 +193,7 @@
             this.textBox5.Size = new System.Drawing.Size(456, 20);
             this.textBox5.TabIndex = 50;
             this.textBox5.Text = "C:\\fromgithub\\xml\\bitacora.csv";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(503, 63);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(38, 20);
-            this.textBox6.TabIndex = 52;
-            this.textBox6.Text = "12:10";
+            this.textBox5.Visible = false;
             // 
             // timer1
             // 
@@ -256,6 +250,16 @@
             this.label8.TabIndex = 55;
             this.label8.Text = "Minutos";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(643, 341);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(20, 23);
+            this.button3.TabIndex = 68;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // empresasComercial1
             // 
             this.empresasComercial1.Location = new System.Drawing.Point(23, 98);
@@ -264,27 +268,25 @@
             this.empresasComercial1.Size = new System.Drawing.Size(618, 54);
             this.empresasComercial1.TabIndex = 0;
             // 
-            // button3
+            // botonExcel1
             // 
-            this.button3.Location = new System.Drawing.Point(623, 13);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(20, 23);
-            this.button3.TabIndex = 68;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.botonExcel1.Location = new System.Drawing.Point(23, 276);
+            this.botonExcel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.botonExcel1.Name = "botonExcel1";
+            this.botonExcel1.Size = new System.Drawing.Size(618, 29);
+            this.botonExcel1.TabIndex = 69;
             // 
             // XMLComercial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 452);
+            this.ClientSize = new System.Drawing.Size(665, 410);
+            this.Controls.Add(this.botonExcel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label5);
@@ -306,6 +308,7 @@
             this.Name = "XMLComercial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XMLComercial";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.XMLComercial_FormClosed);
             this.Load += new System.EventHandler(this.XMLComercial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
@@ -331,12 +334,12 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button3;
+        private controles.BotonExcel botonExcel1;
     }
 }
