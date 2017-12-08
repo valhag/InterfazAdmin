@@ -19,6 +19,9 @@ namespace InterfazAdmin
         public string Cadenaconexion = "";
         List<string> listaerrores = new List<string>();
 
+        int lhoraanterior = 0;
+            int    lminutoanterior =0;
+
         public XMLComercial()
         {
             InitializeComponent();
@@ -61,7 +64,10 @@ namespace InterfazAdmin
             Properties.Settings.Default.Save();
 
             List<RegConcepto> _RegFacturas = new List<RegConcepto>();
+            List<RegConcepto> _RegDevoluciones = new List<RegConcepto>();
             _RegFacturas = lrn.mCargarConceptosFacturacfdiComercial();
+
+            
 
             if (_RegFacturas.Count > 0)
             {
@@ -72,6 +78,15 @@ namespace InterfazAdmin
                 comboBox1.ValueMember = "Codigo";
             }
 
+            _RegDevoluciones = lrn.mCargarConceptosDevolucioncfdiComercial();
+            if (_RegDevoluciones.Count > 0)
+            {
+                comboBox2.DataSource = null;
+                comboBox2.Items.Clear();
+                comboBox2.DataSource = _RegDevoluciones;
+                comboBox2.DisplayMember = "Nombre";
+                comboBox2.ValueMember = "Codigo";
+            }
 
         }
 
@@ -107,7 +122,7 @@ namespace InterfazAdmin
             //mCargaConceptos();
         }
 
-        private void mProcesar()
+        private void mProcesar(int manual=1)
         {
 
 
@@ -115,6 +130,10 @@ namespace InterfazAdmin
             Properties.Settings.Default.RutaEmpresaADM = empresasComercial1.aliasbdd;
             RegConcepto Factura = (RegConcepto)comboBox1.SelectedItem;
             Properties.Settings.Default.Concepto = Factura.Codigo.Trim();
+
+            RegConcepto Devolucion = (RegConcepto)comboBox2.SelectedItem;
+            Properties.Settings.Default.ConceptoD = Devolucion.Codigo.Trim();
+
             Properties.Settings.Default.Save();
 
             string archivo = textBox1.Text;
@@ -129,12 +148,14 @@ namespace InterfazAdmin
             lrn.mGrabarDoctosComercial(1, ref folio);
             if (listaerrores.Count != 0)
             {
-                MessageBox.Show("Existen errores por favor revise bitacora");
+                if (manual == 1)
+                    MessageBox.Show("Existen errores por favor revise bitacora");
                 mGrabaErroresBitacora();
 
             }
             else
-                MessageBox.Show("Proceso Terminado");
+                if (manual == 1)
+                    MessageBox.Show("Proceso Terminado");
             
             
         }
@@ -156,7 +177,7 @@ namespace InterfazAdmin
         
         private void button1_Click(object sender, EventArgs e)
         {
-            mProcesar();
+            mProcesar(1);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -174,9 +195,22 @@ namespace InterfazAdmin
 
             if (hora == numericUpDown1.Value && minuto == numericUpDown2.Value)
             {
-                mProcesar();
+                if (hora != lhoraanterior && minuto != lminutoanterior)
+                {
+                    label9.Text = "Procesando con temporizador";
+                    lhoraanterior = hora;
+                    lminutoanterior = minuto;
+                    mProcesar(0);
+                    label9.Text = "";
+                }
+
                 //timer1.Stop();
                 //MessageBox.Show("Exiting from Timer....");
+            }
+            else
+            {
+                lhoraanterior = 0;
+                lminutoanterior =0;
             }
         }
 
