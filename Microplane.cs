@@ -227,6 +227,7 @@ namespace InterfazAdmin
 
 
             Properties.Settings.Default.databaseOrigen = dsn;
+            Properties.Settings.Default.DSN = textBox1.Text;
             Properties.Settings.Default.Save();
 
             /*Properties.Settings.Default.serverOrigen = txtServer.Text;
