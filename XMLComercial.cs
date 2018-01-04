@@ -65,6 +65,9 @@ namespace InterfazAdmin
 
             List<RegConcepto> _RegFacturas = new List<RegConcepto>();
             List<RegConcepto> _RegDevoluciones = new List<RegConcepto>();
+            List<RegConcepto> _RegPagos = new List<RegConcepto>();
+            List<RegConcepto> _RegNC = new List<RegConcepto>();
+
             _RegFacturas = lrn.mCargarConceptosFacturacfdiComercial();
 
             
@@ -86,6 +89,24 @@ namespace InterfazAdmin
                 comboBox2.DataSource = _RegDevoluciones;
                 comboBox2.DisplayMember = "Nombre";
                 comboBox2.ValueMember = "Codigo";
+            }
+            _RegPagos = lrn.mCargarConceptosPagocfdiComercial();
+            if (_RegPagos.Count > 0)
+            {
+                comboBox3.DataSource = null;
+                comboBox3.Items.Clear();
+                comboBox3.DataSource = _RegPagos;
+                comboBox3.DisplayMember = "Nombre";
+                comboBox3.ValueMember = "Codigo";
+            }
+            _RegNC = lrn.mCargarConceptosNCcfdiComercial();
+            if (_RegNC.Count > 0)
+            {
+                comboBox4.DataSource = null;
+                comboBox4.Items.Clear();
+                comboBox4.DataSource = _RegNC;
+                comboBox4.DisplayMember = "Nombre";
+                comboBox4.ValueMember = "Codigo";
             }
 
         }
@@ -133,6 +154,9 @@ namespace InterfazAdmin
 
             RegConcepto Devolucion = (RegConcepto)comboBox2.SelectedItem;
             Properties.Settings.Default.ConceptoD = Devolucion.Codigo.Trim();
+
+            RegConcepto Pago = (RegConcepto)comboBox3.SelectedItem;
+            Properties.Settings.Default.ConceptoP = Pago.Codigo.Trim();
 
             Properties.Settings.Default.Save();
 
