@@ -116,10 +116,9 @@
             this.textBox3.Location = new System.Drawing.Point(184, 282);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(76, 20);
             this.textBox3.TabIndex = 42;
-            this.textBox3.Text = "12345678a";
+            this.textBox3.Text = "purebeauty01";
             // 
             // label2
             // 

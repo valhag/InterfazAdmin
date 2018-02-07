@@ -166,7 +166,7 @@ namespace InterfazAdmin
                 bool incluyetimbrado = true;
                 //lista = lrn.mGrabarDoctosComercial(1);
                 
-                lrn.mGrabarDoctosComercial(1, ref lultimofolio);
+                lrn.mGrabarDoctosComercial(1, ref lultimofolio,0,1);
                 if (listaerrores.Count != 0)
                 {
                     MessageBox.Show("Existen errores por favor revise bitacora");

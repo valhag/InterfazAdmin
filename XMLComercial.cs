@@ -162,24 +162,29 @@ namespace InterfazAdmin
 
             string archivo = textBox1.Text;
             //lrn.mLLenarInfoFacturacionMasiva(archivo);
-            lrn.mLlenarinfoXML(archivo);
+            string lllenardocumento = lrn.mLlenarinfoXML(archivo);
 
-            List<string> lista = new List<string>();
-
-            bool incluyetimbrado = true;
-            long folio = 0;
-            listaerrores.Clear();
-            lrn.mGrabarDoctosComercial(1, ref folio);
-            if (listaerrores.Count != 0)
+            if (lllenardocumento == "")
             {
-                if (manual == 1)
-                    MessageBox.Show("Existen errores por favor revise bitacora");
-                mGrabaErroresBitacora();
+                List<string> lista = new List<string>();
 
+                bool incluyetimbrado = true;
+                long folio = 0;
+                listaerrores.Clear();
+                lrn.mGrabarDoctosComercial(1, ref folio,1);
+                if (listaerrores.Count != 0)
+                {
+                    if (manual == 1)
+                        MessageBox.Show("Existen errores por favor revise bitacora");
+                    mGrabaErroresBitacora();
+
+                }
+                else
+                    if (manual == 1)
+                        MessageBox.Show("Proceso Terminado");
             }
             else
-                if (manual == 1)
-                    MessageBox.Show("Proceso Terminado");
+                MessageBox.Show(lllenardocumento);
             
             
         }

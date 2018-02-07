@@ -28,6 +28,7 @@ namespace InterfazAdmin
 
         private void Form5_Load(object sender, EventArgs e)
         {
+            this.Text = "Datos Conexion SQLServer";
             txtServer.Text = Properties.Settings.Default.server;
             txtBD.Text = Properties.Settings.Default.database;
             txtUser.Text = Properties.Settings.Default.user;
