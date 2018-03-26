@@ -17,10 +17,11 @@ namespace InterfazAdmin
             InitializeComponent();
 
         }
-        XMLComercial y = new XMLComercial();
+        //XMLComercial y = new XMLComercial();
         //Gomar z = new Gomar();
+        PedidosFacturas y = new PedidosFacturas();
 
-        public void asignaform1(XMLComercial ay)
+        public void asignaform1(PedidosFacturas ay)
         {
             y = ay;
         }

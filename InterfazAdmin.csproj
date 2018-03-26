@@ -86,8 +86,13 @@
     <Compile Include="Microplane.Designer.cs">
       <DependentUpon>Microplane.cs</DependentUpon>
     </Compile>
+    <Compile Include="PedidosFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidosFacturas.Designer.cs">
+      <DependentUpon>PedidosFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -121,6 +126,9 @@
     <EmbeddedResource Include="Microplane.resx">
       <DependentUpon>Microplane.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PedidosFacturas.resx">
+      <DependentUpon>PedidosFacturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XMLComercial.resx">
       <DependentUpon>XMLComercial.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,15 +139,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\dllnew\dllnew\dllsnew\controles\Controles.csproj">
+    <ProjectReference Include="..\dllnew\dllsnew\controles\Controles.csproj">
       <Project>{6cf8cdf6-bcea-4a14-9c1f-b48ab0d5ad76}</Project>
       <Name>Controles</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\dllnew\dllnew\dllsnew\Interfaces\Interfaces.csproj">
+    <ProjectReference Include="..\dllnew\dllsnew\Interfaces\Interfaces.csproj">
       <Project>{704e6595-e778-4b7d-907c-e850a3c85563}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\dllnew\dllnew\dllsnew\LibreriaDoctos\LibreriaDoctos.csproj">
+    <ProjectReference Include="..\dllnew\dllsnew\LibreriaDoctos\LibreriaDoctos.csproj">
       <Project>{48e88799-92db-4d7b-ab76-5452c4fedd67}</Project>
       <Name>LibreriaDoctos</Name>
     </ProjectReference>
