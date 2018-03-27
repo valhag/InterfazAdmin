@@ -19,9 +19,10 @@ namespace InterfazAdmin
         }
         //XMLComercial y = new XMLComercial();
         //Gomar z = new Gomar();
-        PedidosFacturas y = new PedidosFacturas();
+        //PedidosFacturas y = new PedidosFacturas();
+        Microplane y = new Microplane();
 
-        public void asignaform1(PedidosFacturas ay)
+        public void asignaform1(Microplane ay)
         {
             y = ay;
         }

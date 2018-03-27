@@ -17,10 +17,10 @@ namespace InterfazAdmin
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FacturacionMasiva());
             //Application.Run(new XMLComercial());
-            //Application.Run(new Microplane());
+            Application.Run(new Microplane());
 
             //Application.Run(new AmcoPedidos());
-            Application.Run(new PedidosFacturas());
+            //Application.Run(new PedidosFacturas());
         }
     }
 }
