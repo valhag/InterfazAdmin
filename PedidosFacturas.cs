@@ -34,7 +34,8 @@ namespace InterfazAdmin
             //int x = int(message);
             try
             {
-                //this.progressBar1.Value = Convert.ToInt32(message);
+                this.progressBar1.Value = Convert.ToInt32(message);
+                this.progressBar1.MarqueeAnimationSpeed = 30;
             }
             catch (Exception eeeeee)
             { }
@@ -48,10 +49,10 @@ namespace InterfazAdmin
 
         private void PedidosFacturas_Load(object sender, EventArgs e)
         {
-            if (this == null)
-            {
-               
-            }
+            ISujeto lsujeto = lrn.lbd;
+    
+            lsujeto.Registrar(this);
+
         }
         private void OnComboChange(object sender, EventArgs e)
         {
@@ -68,7 +69,7 @@ namespace InterfazAdmin
             List<RegConcepto> _RegFacturas = new List<RegConcepto>();
             List<RegConcepto> _RegPedidos = new List<RegConcepto>();
             
-            _RegFacturas = lrn.mCargarConceptosFacturacfdiComercial();
+            _RegFacturas = lrn.mCargarConceptosCargosComercial();
 
 
             
@@ -133,29 +134,61 @@ namespace InterfazAdmin
                 x.ShowDialog(this);
             }
             botonExcel1.mGeneraNombre(2, "CARGA DE PEDIDOS");
+            botonExcel2.mSetearEtiqueta("Archivo Bitacora");
+            botonExcel2.mGeneraNombre(1);
+            botonExcel2.mAsignaTipo(1);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //Properties.Settings.Default.Pass = textBox3.Text;
             Properties.Settings.Default.RutaEmpresaADM = empresasComercial1.aliasbdd;
-            //RegConcepto Factura = (RegConcepto)comboBox1.SelectedItem;
-            //Properties.Settings.Default.Concepto = Factura.Codigo.Trim();
+            RegConcepto Factura = (RegConcepto)comboBox1.SelectedItem;
+            Properties.Settings.Default.Concepto = Factura.Codigo.Trim();
+            RegConcepto Pedido = (RegConcepto)comboBox2.SelectedItem;
+            Properties.Settings.Default.ConceptoP = Pedido.Codigo.Trim();
             Properties.Settings.Default.Save();
 
             string archivo = botonExcel1.mRegresarNombre();
-            lrn.mLLenarInfoPedidosFacturas(archivo);
+            string lrespuesta = lrn.mLLenarInfoPedidosFacturas(archivo);
 
-            List<string> lista = new List<string>();
-
-            bool incluyetimbrado = true;
-            lista = lrn.mGrabarDoctos(incluyetimbrado, 1);
-            if (lista.Count != 0)
+            if (lrespuesta == "")
             {
-                MessageBox.Show(lista[0].ToString());
+
+                long folio = 0;
+                bool incluyetimbrado = true;
+                lrn.mGrabarDoctosComercial(0, ref folio, 1,0,0); ;
+                if (listaerrores.Count != 0)
+                {
+                    MessageBox.Show("Existen errores por favor revise bitacora");
+                    mGrabaErroresBitacora();
+                    //MessageBox.Show(lista[0].ToString());
+                }
+                else
+                    MessageBox.Show("Proceso Terminado");
             }
             else
-                MessageBox.Show("Proceso Terminado");
+                MessageBox.Show(lrespuesta);
         }
+        private void mGrabaErroresBitacora()
+        {
+            StreamWriter objwriter = new StreamWriter(botonExcel2.mRegresarNombre());
+            // File.Delete(botonExcel1.mRegresarNombre());
+            //StreamWriter objwriter = new StreamWriter(textBox5.Text);
+            foreach (string x in listaerrores)
+            {
+                //abrir el arcvivo de bitacora
+
+                objwriter.WriteLine(x);
+            }
+            objwriter.Flush();
+            objwriter.Close();
+        }
+
+        private void PedidosFacturas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            lrn.mCerrarSdkComercial();
+        }
+       
     }
 }

@@ -35,15 +35,17 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.botonExcel2 = new controles.BotonExcel();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(35, 177);
+            this.button1.Location = new System.Drawing.Point(31, 253);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(594, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "Enviar a Comercial";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -70,9 +72,9 @@
             this.label1.Location = new System.Drawing.Point(36, 113);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.Size = new System.Drawing.Size(53, 17);
             this.label1.TabIndex = 43;
-            this.label1.Text = "Facturas";
+            this.label1.Text = "Cargos";
             // 
             // comboBox1
             // 
@@ -105,11 +107,28 @@
             this.comboBox2.Size = new System.Drawing.Size(346, 21);
             this.comboBox2.TabIndex = 44;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(31, 286);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(594, 23);
+            this.progressBar1.TabIndex = 46;
+            // 
+            // botonExcel2
+            // 
+            this.botonExcel2.Location = new System.Drawing.Point(31, 197);
+            this.botonExcel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.botonExcel2.Name = "botonExcel2";
+            this.botonExcel2.Size = new System.Drawing.Size(533, 29);
+            this.botonExcel2.TabIndex = 47;
+            // 
             // PedidosFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 245);
+            this.ClientSize = new System.Drawing.Size(637, 337);
+            this.Controls.Add(this.botonExcel2);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label1);
@@ -117,8 +136,13 @@
             this.Controls.Add(this.botonExcel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.empresasComercial1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PedidosFacturas";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PedidosFacturas";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PedidosFacturas_FormClosed);
             this.Load += new System.EventHandler(this.PedidosFacturas_Load);
             this.Shown += new System.EventHandler(this.PedidosFacturas_Shown);
             this.ResumeLayout(false);
@@ -135,5 +159,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private controles.BotonExcel botonExcel2;
     }
 }
