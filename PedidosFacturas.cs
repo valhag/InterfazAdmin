@@ -7,39 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LibreriaDoctos;
-using System.IO;
-using System.Xml;
 using Interfaces;
+using System.IO;
 
 namespace InterfazAdmin
 {
-    public partial class XMLComercial : Form, IObservador
+    public partial class PedidosFacturas : Form, IObservador
     {
         ClassRN lrn = new ClassRN();
         public string Cadenaconexion = "";
         List<string> listaerrores = new List<string>();
-
-        int lhoraanterior = 0;
-            int    lminutoanterior =0;
-
-        public XMLComercial()
+     
+        public PedidosFacturas()
         {
+            
             InitializeComponent();
             Properties.Settings.Default.database = "CompacWAdmin";
             Properties.Settings.Default.Save();
             Cadenaconexion = "data source =" + Properties.Settings.Default.server +
       ";initial catalog =" + Properties.Settings.Default.database + " ;user id = " + Properties.Settings.Default.user +
       "; password = " + Properties.Settings.Default.password + ";";
-            //Archivo = Properties.Settings.Default.archivo;
         }
-
 
         public void Actualizar(double message)
         {
             //int x = int(message);
             try
             {
-                //this.progressBar1.Value = Convert.ToInt32(message);
+                this.progressBar1.Value = Convert.ToInt32(message);
+                this.progressBar1.MarqueeAnimationSpeed = 30;
             }
             catch (Exception eeeeee)
             { }
@@ -51,11 +47,19 @@ namespace InterfazAdmin
             listaerrores.Add(message);
         }
 
+        private void PedidosFacturas_Load(object sender, EventArgs e)
+        {
+            ISujeto lsujeto = lrn.lbd;
+    
+            lsujeto.Registrar(this);
+
+        }
         private void OnComboChange(object sender, EventArgs e)
         {
             mCargaConceptos();
 
         }
+
 
 
         private void mCargaConceptos()
@@ -64,14 +68,12 @@ namespace InterfazAdmin
             Properties.Settings.Default.Save();
 
             List<RegConcepto> _RegFacturas = new List<RegConcepto>();
-            List<RegConcepto> _RegDevoluciones = new List<RegConcepto>();
-            List<RegConcepto> _RegPagos = new List<RegConcepto>();
-            List<RegConcepto> _RegNC = new List<RegConcepto>();
+            List<RegConcepto> _RegPedidos = new List<RegConcepto>();
+            
+            _RegFacturas = lrn.mCargarConceptosCargosComercial();
 
-            _RegFacturas = lrn.mCargarConceptosFacturacfdiComercial();
 
             
-
             if (_RegFacturas.Count > 0)
             {
                 comboBox1.DataSource = null;
@@ -81,16 +83,16 @@ namespace InterfazAdmin
                 comboBox1.ValueMember = "Codigo";
             }
 
-            _RegDevoluciones = lrn.mCargarConceptosDevolucioncfdiComercial();
-            if (_RegDevoluciones.Count > 0)
+            _RegPedidos = lrn.mCargarConceptosPedidosComercial();
+            if (_RegPedidos.Count > 0)
             {
                 comboBox2.DataSource = null;
                 comboBox2.Items.Clear();
-                comboBox2.DataSource = _RegDevoluciones;
+                comboBox2.DataSource = _RegPedidos;
                 comboBox2.DisplayMember = "Nombre";
                 comboBox2.ValueMember = "Codigo";
             }
-            _RegPagos = lrn.mCargarConceptosPagocfdiComercial();
+            /*_RegPagos = lrn.mCargarConceptosPagocfdiComercial();
             if (_RegPagos.Count > 0)
             {
                 comboBox3.DataSource = null;
@@ -107,19 +109,16 @@ namespace InterfazAdmin
                 comboBox4.DataSource = _RegNC;
                 comboBox4.DisplayMember = "Nombre";
                 comboBox4.ValueMember = "Codigo";
-            }
+            }*/
 
         }
 
-        private void XMLComercial_Load(object sender, EventArgs e)
+        private void PedidosFacturas_Shown(object sender, EventArgs e)
         {
-            timer1.Interval = 1000;
-            timer1.Start();
-
             ISujeto lsujeto = lrn.lbd;
             lsujeto.Registrar(this);
 
-            this.Text = " Interfaz xml " + " " + this.ProductVersion;
+            this.Text = " Interfaz Pedidos/facturas " + " " + this.ProductVersion;
             lrn.mSeteaDirectorio(Directory.GetCurrentDirectory());
 
             if (Cadenaconexion != "" && Cadenaconexion != "data source =;initial catalog =CompacWAdmin ;user id = ; password = ;")
@@ -130,68 +129,51 @@ namespace InterfazAdmin
             }
             else
             {
+                this.Visible = false;
                 Form5 x = new Form5();
+                //this.Visible = false;
                 x.ShowDialog(this);
             }
-
-            botonExcel1.mSetearEtiqueta("Archivo Bitacora");
-            botonExcel1.mGeneraNombre(1);
-            botonExcel1.mAsignaTipo(1);
-            
-            //
-            
-            //mCargaConceptos();
+            botonExcel1.mGeneraNombre(2, "CARGA DE PEDIDOS");
+            botonExcel2.mSetearEtiqueta("Archivo Bitacora");
+            botonExcel2.mGeneraNombre(1);
+            botonExcel2.mAsignaTipo(1);
         }
 
-        private void mProcesar(int manual=1)
+        private void button1_Click(object sender, EventArgs e)
         {
-
-
-            Properties.Settings.Default.Pass = textBox3.Text;
+            //Properties.Settings.Default.Pass = textBox3.Text;
             Properties.Settings.Default.RutaEmpresaADM = empresasComercial1.aliasbdd;
             RegConcepto Factura = (RegConcepto)comboBox1.SelectedItem;
             Properties.Settings.Default.Concepto = Factura.Codigo.Trim();
-
-            RegConcepto Devolucion = (RegConcepto)comboBox2.SelectedItem;
-            Properties.Settings.Default.ConceptoD = Devolucion.Codigo.Trim();
-
-            RegConcepto Pago = (RegConcepto)comboBox3.SelectedItem;
-            Properties.Settings.Default.ConceptoP = Pago.Codigo.Trim();
-
+            RegConcepto Pedido = (RegConcepto)comboBox2.SelectedItem;
+            Properties.Settings.Default.ConceptoP = Pedido.Codigo.Trim();
             Properties.Settings.Default.Save();
 
-            string archivo = textBox1.Text;
-            //lrn.mLLenarInfoFacturacionMasiva(archivo);
-            string lllenardocumento = lrn.mLlenarinfoXML(archivo);
+            string archivo = botonExcel1.mRegresarNombre();
+            string lrespuesta = lrn.mLLenarInfoPedidosFacturas(archivo);
 
-            if (lllenardocumento == "")
+            if (lrespuesta == "")
             {
-                List<string> lista = new List<string>();
 
-                bool incluyetimbrado = true;
                 long folio = 0;
-                listaerrores.Clear();
-                lrn.mGrabarDoctosComercial(1, ref folio,1,0);
+                bool incluyetimbrado = true;
+                lrn.mGrabarDoctosComercial(0, ref folio, 1,0,0); ;
                 if (listaerrores.Count != 0)
                 {
-                    if (manual == 1)
-                        MessageBox.Show("Existen errores por favor revise bitacora");
+                    MessageBox.Show("Existen errores por favor revise bitacora");
                     mGrabaErroresBitacora();
-
+                    //MessageBox.Show(lista[0].ToString());
                 }
                 else
-                    if (manual == 1)
-                        MessageBox.Show("Proceso Terminado");
+                    MessageBox.Show("Proceso Terminado");
             }
             else
-                MessageBox.Show(lllenardocumento);
-            
-            
+                MessageBox.Show(lrespuesta);
         }
-
         private void mGrabaErroresBitacora()
         {
-            StreamWriter objwriter = new StreamWriter(botonExcel1.mRegresarNombre());
+            StreamWriter objwriter = new StreamWriter(botonExcel2.mRegresarNombre());
             // File.Delete(botonExcel1.mRegresarNombre());
             //StreamWriter objwriter = new StreamWriter(textBox5.Text);
             foreach (string x in listaerrores)
@@ -203,55 +185,21 @@ namespace InterfazAdmin
             objwriter.Flush();
             objwriter.Close();
         }
-        
-        private void button1_Click(object sender, EventArgs e)
-        {
-            mProcesar(1);
-        }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            int hora = DateTime.Now.Hour;
-            int minuto = DateTime.Now.Minute;
-            //second = second + 1;
-            Properties.Settings.Default.RutaOrigen = textBox1.Text;
-            Properties.Settings.Default.RutaBien = textBox2.Text;
-            Properties.Settings.Default.RutaMal = textBox4.Text;
-
-
-            Properties.Settings.Default.Save();
-
-
-            if (hora == numericUpDown1.Value && minuto == numericUpDown2.Value)
-            {
-                if (hora != lhoraanterior && minuto != lminutoanterior)
-                {
-                    label9.Text = "Procesando con temporizador";
-                    lhoraanterior = hora;
-                    lminutoanterior = minuto;
-                    mProcesar(0);
-                    label9.Text = "";
-                }
-
-                //timer1.Stop();
-                //MessageBox.Show("Exiting from Timer....");
-            }
-            else
-            {
-                lhoraanterior = 0;
-                lminutoanterior =0;
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.Reset();
-            Properties.Settings.Default.Save();
-        }
-
-        private void XMLComercial_FormClosed(object sender, FormClosedEventArgs e)
+        private void PedidosFacturas_FormClosed(object sender, FormClosedEventArgs e)
         {
             lrn.mCerrarSdkComercial();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+       
     }
 }

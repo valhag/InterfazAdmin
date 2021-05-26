@@ -60,7 +60,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(9, 76);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(548, 247);
@@ -75,9 +75,9 @@
             this.tabPage1.Controls.Add(this.codigocatalogo2);
             this.tabPage1.Controls.Add(this.codigocatalogo1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(540, 221);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Conf. Productos";
@@ -130,6 +130,7 @@
             this.codigocatalogo1.Name = "codigocatalogo1";
             this.codigocatalogo1.Size = new System.Drawing.Size(518, 18);
             this.codigocatalogo1.TabIndex = 4;
+            this.codigocatalogo1.Load += new System.EventHandler(this.codigocatalogo1_Load_1);
             // 
             // tabPage2
             // 
@@ -143,9 +144,9 @@
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(540, 221);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Grabar Complemento";
@@ -154,7 +155,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(26, 104);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(399, 19);
             this.button1.TabIndex = 21;
@@ -165,7 +166,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(123, 64);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(113, 20);
             this.textBox3.TabIndex = 16;
@@ -183,7 +184,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(353, 64);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(114, 20);
             this.textBox4.TabIndex = 17;
@@ -201,7 +202,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(353, 41);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(113, 20);
             this.textBox2.TabIndex = 15;
@@ -219,7 +220,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(122, 41);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(114, 20);
             this.textBox1.TabIndex = 14;
@@ -246,7 +247,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridView1.Location = new System.Drawing.Point(12, 348);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -256,7 +257,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(85, 324);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(380, 19);
             this.button2.TabIndex = 16;
@@ -282,7 +283,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.seleccionEmpresa1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Complemento";

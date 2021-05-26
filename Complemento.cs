@@ -210,5 +210,10 @@ namespace InterfazAdmin
 
 
         }
+
+        private void codigocatalogo1_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

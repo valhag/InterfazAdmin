@@ -17,10 +17,15 @@ namespace InterfazAdmin
             InitializeComponent();
 
         }
-        XMLComercial y = new XMLComercial();
+        //XMLComercial y = new XMLComercial();
         //Gomar z = new Gomar();
 
-        public void asignaform1(XMLComercial ay)
+        //NewExcel y = new NewExcel();
+        //Addenda y = new Addenda();
+        //AddendaTest y = new AddendaTest();
+        Autorizaciones y = new Autorizaciones();
+
+        public void asignaform1(Autorizaciones ay)
         {
             y = ay;
         }
@@ -68,11 +73,12 @@ namespace InterfazAdmin
                 Properties.Settings.Default.Save();
 
                 this.Close();
+                this.DialogResult = DialogResult.OK;
                 y.Cadenaconexion = "data source =" + Properties.Settings.Default.server +
                 ";initial catalog =" + Properties.Settings.Default.database + " ;user id = " + Properties.Settings.Default.user +
                 "; password = " + Properties.Settings.Default.password + ";";
                 //y.mllenarcomboempresas();
-                y.Visible = true;
+                //y.Visible = true;
             }
             else
                 MessageBox.Show("Valores de conexion incorrectos");
