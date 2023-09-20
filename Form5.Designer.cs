@@ -58,6 +58,7 @@
             this.label4.Size = new System.Drawing.Size(115, 20);
             this.label4.TabIndex = 18;
             this.label4.Text = "Password";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtPass
             // 
@@ -66,6 +67,7 @@
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(138, 20);
             this.txtPass.TabIndex = 17;
+            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
             // label3
             // 
@@ -76,6 +78,7 @@
             this.label3.Size = new System.Drawing.Size(115, 20);
             this.label3.TabIndex = 16;
             this.label3.Text = "Usuario";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtUser
             // 
@@ -83,6 +86,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(138, 20);
             this.txtUser.TabIndex = 15;
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // label2
             // 
@@ -93,6 +97,7 @@
             this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 14;
             this.label2.Text = "Base Datos";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtBD
             // 
@@ -102,6 +107,7 @@
             this.txtBD.Size = new System.Drawing.Size(138, 20);
             this.txtBD.TabIndex = 13;
             this.txtBD.Text = "GeneralesSQL";
+            this.txtBD.TextChanged += new System.EventHandler(this.txtBD_TextChanged);
             // 
             // label1
             // 
@@ -112,6 +118,7 @@
             this.label1.Size = new System.Drawing.Size(116, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = "Server+Instancia";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtServer
             // 
@@ -119,6 +126,7 @@
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(138, 20);
             this.txtServer.TabIndex = 11;
+            this.txtServer.TextChanged += new System.EventHandler(this.txtServer_TextChanged);
             // 
             // Form5
             // 

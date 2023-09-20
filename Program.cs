@@ -17,7 +17,7 @@ namespace InterfazAdmin
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FacturacionMasiva());
             //Application.Run(new XMLComercial());
-            Application.Run(new AddendaTest());
+            //Application.Run(new AddendaTest());
 
             //Application.Run(new PedidosFacturas());
 
@@ -26,6 +26,11 @@ namespace InterfazAdmin
             //Application.Run(new NewExcel());
             //Application.Run(new Montessori());
             //Application.Run(new Autorizaciones());
+            //Application.Run(new CartaPorte());
+            //Application.Run(new Microplane());
+            //Application.Run(new cfdiTraslado());
+            //Application.Run(new traspaso());
+            Application.Run(new Produccion());
         }
     }
 }

@@ -311,6 +311,7 @@
             // botonExcel1
             // 
             this.botonExcel1.Location = new System.Drawing.Point(12, 510);
+            this.botonExcel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonExcel1.Name = "botonExcel1";
             this.botonExcel1.Size = new System.Drawing.Size(591, 36);
             this.botonExcel1.TabIndex = 4;
@@ -321,10 +322,12 @@
             this.seleccionEmpresa1.Name = "seleccionEmpresa1";
             this.seleccionEmpresa1.Size = new System.Drawing.Size(743, 75);
             this.seleccionEmpresa1.TabIndex = 0;
+            this.seleccionEmpresa1.Load += new System.EventHandler(this.seleccionEmpresa1_Load);
             // 
             // botonExcel2
             // 
             this.botonExcel2.Location = new System.Drawing.Point(12, 545);
+            this.botonExcel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonExcel2.Name = "botonExcel2";
             this.botonExcel2.Size = new System.Drawing.Size(591, 36);
             this.botonExcel2.TabIndex = 5;

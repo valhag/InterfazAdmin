@@ -80,5 +80,10 @@ namespace InterfazAdmin
 
 
         }
+
+        private void seleccionEmpresa1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
