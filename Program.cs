@@ -30,7 +30,8 @@ namespace InterfazAdmin
             //Application.Run(new Microplane());
             //Application.Run(new cfdiTraslado());
             //Application.Run(new traspaso());
-            Application.Run(new Produccion());
+            //Application.Run(new Produccion());
+            Application.Run(new PedidosSeries());
         }
     }
 }

@@ -140,6 +140,18 @@
     <Compile Include="PedidosFacturas.designer.cs">
       <DependentUpon>PedidosFacturas.cs</DependentUpon>
     </Compile>
+    <Compile Include="PedidosSeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidosSeries.Designer.cs">
+      <DependentUpon>PedidosSeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidosSeriesMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidosSeriesMovimientos.Designer.cs">
+      <DependentUpon>PedidosSeriesMovimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Produccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +228,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PedidosFacturas.resx">
       <DependentUpon>PedidosFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidosSeries.resx">
+      <DependentUpon>PedidosSeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidosSeriesMovimientos.resx">
+      <DependentUpon>PedidosSeriesMovimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Produccion.resx">
       <DependentUpon>Produccion.cs</DependentUpon>
