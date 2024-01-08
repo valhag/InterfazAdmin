@@ -64,7 +64,7 @@ namespace InterfazAdmin
         private void PedidosSeries_Load(object sender, EventArgs e)
         {
             ISujeto lsujeto = lrn.lbd;
-
+            codigocatalogocomercial1.TabStop = false;
             lsujeto.Registrar(this);
 
 
@@ -87,14 +87,14 @@ namespace InterfazAdmin
             Properties.Settings.Default.Save();
             //this.codigocatalogocomercial1.Enabled = false;
 
-            //empresasComercial1.SelectedItem += new EventHandler(OnComboChange);
+            empresasComercial1.SelectedItem += new EventHandler(OnComboChange);
 
         }
 
         private void OnComboChange(object sender, EventArgs e)
         {
 
-            
+            mCargaConceptos();
 
         }
 
@@ -169,13 +169,32 @@ namespace InterfazAdmin
         private void button2_Click(object sender, EventArgs e)
         {
             int lret = mBuscarPedido();
-            if (lret == 0)
-                MessageBox.Show("Pedido No existe");
+            if (lret == 0 || lret == -1) {
+                if (lret ==0)
+                    MessageBox.Show("Pedido No existe");
+            
+                codigocatalogocomercial1.mSetCodigo("");
+                codigocatalogocomercial1.mSetDescripcion("");
+
+                textBox3.Text = System.DateTime.Now.ToString("dd/MM/yyyy");
+            }
         }
         RegDocto doc = new RegDocto();
         private int mBuscarPedido()
         {
             dataGridView1.Rows.Clear();
+
+            RegConcepto Factura = (RegConcepto)comboBox1.SelectedItem;
+
+            
+
+            RegDocto docfactura = lrn.mBuscarDoctoComercial(textBox2.Text, textBox1.Text, Factura.Codigo);
+
+            if (docfactura.cIdDocto > 0)
+            {
+                MessageBox.Show("Una factura ya fue generada a partir de este pedido");
+                return -1;
+            }
 
             // BUscar documento
             doc = new RegDocto();
@@ -184,7 +203,7 @@ namespace InterfazAdmin
             {
                 codigocatalogocomercial1.mSetCodigo(doc.cCodigoCliente);
                 codigocatalogocomercial1.mSetDescripcion(doc.cRazonSocial);
-                textBox3.Text = doc.cFecha.ToString();
+                textBox3.Text = doc.cFecha.ToString("dd/MM/yyyy");
                 mllenargridmovtos(doc);
                 return 1;
             }
@@ -210,7 +229,7 @@ namespace InterfazAdmin
 
             DateTime xfecha2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
-            DateTime xfechalimite = DateTime.ParseExact("01/02/2024", "dd/MM/yyyy", ci, DateTimeStyles.None);
+            DateTime xfechalimite = DateTime.ParseExact("01/04/2024", "dd/MM/yyyy", ci, DateTimeStyles.None);
             DateTime xfecha = DateTime.ParseExact(xfecha2.ToString("dd/MM/yyyy", ci), "dd/MM/yyyy", ci, DateTimeStyles.None);
 
             if (xfecha >= xfechalimite)
@@ -229,6 +248,11 @@ namespace InterfazAdmin
             }
             lrn.lbd._RegDoctos.Clear();
             doc.cCodigoConcepto = "4";
+
+            RegConcepto Factura = (RegConcepto)comboBox1.SelectedItem;
+
+            doc.cCodigoConcepto = Factura.Codigo;
+
             lrn.lbd._RegDoctos.Add(doc);
             long lultimofolio = 0;
             listaerrores.Clear();
@@ -241,6 +265,35 @@ namespace InterfazAdmin
             }
             else
                 MessageBox.Show("Proceso Terminado");
+
+        }
+
+        private void PedidosSeries_Shown(object sender, EventArgs e)
+        {
+            mCargaConceptos();
+        }
+
+        private void mCargaConceptos()
+        {
+            Properties.Settings.Default.RutaEmpresaADM = empresasComercial1.aliasbdd;
+            Properties.Settings.Default.Save();
+
+            List<RegConcepto> _RegFacturas = new List<RegConcepto>();
+            //  List<RegConcepto> _RegPedidos = new List<RegConcepto>();
+
+            _RegFacturas = lrn.mCargarConceptosFacturaComercial();
+
+
+
+            if (_RegFacturas.Count > 0)
+            {
+                comboBox1.DataSource = null;
+                comboBox1.Items.Clear();
+                comboBox1.DataSource = _RegFacturas;
+                comboBox1.DisplayMember = "Nombre";
+                comboBox1.ValueMember = "Codigo";
+            }
+
 
         }
     }

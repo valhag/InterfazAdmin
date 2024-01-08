@@ -31,6 +31,8 @@ namespace InterfazAdmin
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,21 +52,26 @@ namespace InterfazAdmin
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // empresasComercial1
+            // 
+            this.empresasComercial1.TabIndex = 1;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(0, 87);
+            this.tabControl1.Location = new System.Drawing.Point(0, 117);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(910, 405);
             this.tabControl1.TabIndex = 54;
+            this.tabControl1.TabStop = false;
             // 
             // tabPage1
             // 
@@ -87,6 +94,27 @@ namespace InterfazAdmin
             this.tabPage1.Text = "Capturar Pedidos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(14, 305);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(871, 23);
+            this.button3.TabIndex = 7;
+            this.button3.TabStop = false;
+            this.button3.Text = "Generar Factura";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(452, 17);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -98,6 +126,7 @@ namespace InterfazAdmin
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(80, 48);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
@@ -115,11 +144,10 @@ namespace InterfazAdmin
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(262, 20);
+            this.textBox2.Location = new System.Drawing.Point(304, 20);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "1";
+            this.textBox2.Size = new System.Drawing.Size(142, 20);
+            this.textBox2.TabIndex = 4;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
@@ -138,7 +166,6 @@ namespace InterfazAdmin
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "A";
             // 
             // button1
             // 
@@ -146,6 +173,7 @@ namespace InterfazAdmin
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 23);
             this.button1.TabIndex = 2;
+            this.button1.TabStop = false;
             this.button1.Text = "Agregar Movimiento";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
@@ -153,11 +181,12 @@ namespace InterfazAdmin
             // 
             // codigocatalogocomercial1
             // 
+            this.codigocatalogocomercial1.Enabled = false;
             this.codigocatalogocomercial1.Location = new System.Drawing.Point(215, 50);
             this.codigocatalogocomercial1.Margin = new System.Windows.Forms.Padding(2);
             this.codigocatalogocomercial1.Name = "codigocatalogocomercial1";
             this.codigocatalogocomercial1.Size = new System.Drawing.Size(600, 21);
-            this.codigocatalogocomercial1.TabIndex = 1;
+            this.codigocatalogocomercial1.TabIndex = 177;
             // 
             // dataGridView1
             // 
@@ -177,13 +206,14 @@ namespace InterfazAdmin
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 76);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 95);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(871, 204);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
@@ -191,89 +221,106 @@ namespace InterfazAdmin
             // 
             this.Column1.HeaderText = "IdMovto";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Codigo Producto";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "NombreProducto";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Codigo Almacen";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Nombre Almacen";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Unidades";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Precio";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Neto";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "IVA";
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // Column10
             // 
             this.Column10.HeaderText = "Total";
             this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             // 
-            // button2
+            // label4
             // 
-            this.button2.Location = new System.Drawing.Point(482, 18);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(49, 84);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 17);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "Factura Generar";
             // 
-            // button3
+            // comboBox1
             // 
-            this.button3.Location = new System.Drawing.Point(14, 309);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(871, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Generar Factura";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(162, 81);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(346, 21);
+            this.comboBox1.TabIndex = 2;
             // 
             // PedidosSeries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 526);
+            this.ClientSize = new System.Drawing.Size(935, 526);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tabControl1);
             this.Name = "PedidosSeries";
             this.Text = "PedidosSeries";
             this.Load += new System.EventHandler(this.PedidosSeries_Load);
+            this.Shown += new System.EventHandler(this.PedidosSeries_Shown);
             this.Controls.SetChildIndex(this.empresasComercial1, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
+            this.Controls.SetChildIndex(this.comboBox1, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -302,5 +349,7 @@ namespace InterfazAdmin
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
