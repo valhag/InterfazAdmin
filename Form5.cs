@@ -20,21 +20,18 @@ namespace InterfazAdmin
         //XMLComercial y = new XMLComercial();
         //Gomar z = new Gomar();
         //PedidosFacturas y = new PedidosFacturas();
-        Microplane y = new Microplane();
+        //Microplane y = new Microplane();
 
-<<<<<<< HEAD
         //NewExcel y = new NewExcel();
         //Addenda y = new Addenda();
         //AddendaTest y = new AddendaTest();
         Autorizaciones y = new Autorizaciones();
 
         public void asignaform1(Autorizaciones ay)
-=======
-        public void asignaform1(Microplane ay)
->>>>>>> refs/remotes/origin/master
         {
             y = ay;
         }
+        
 
 
         private void Form5_Load(object sender, EventArgs e)

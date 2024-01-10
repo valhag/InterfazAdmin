@@ -61,10 +61,6 @@ namespace InterfazAdmin
         }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/master
         private void mCargaConceptos()
         {
             Properties.Settings.Default.RutaEmpresaADM = empresasComercial1.aliasbdd;
@@ -193,7 +189,6 @@ namespace InterfazAdmin
         {
             lrn.mCerrarSdkComercial();
         }
-<<<<<<< HEAD
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -204,8 +199,6 @@ namespace InterfazAdmin
         {
 
         }
-=======
->>>>>>> refs/remotes/origin/master
        
     }
 }
