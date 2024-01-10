@@ -22,6 +22,7 @@ namespace InterfazAdmin
             //Application.Run(new PedidosFacturas());
 
             //Application.Run(new AmcoPedidos());
+<<<<<<< HEAD
 
             //Application.Run(new NewExcel());
             //Application.Run(new Montessori());
@@ -32,6 +33,9 @@ namespace InterfazAdmin
             //Application.Run(new traspaso());
             //Application.Run(new Produccion());
             Application.Run(new PedidosSeries());
+=======
+            //Application.Run(new PedidosFacturas());
+>>>>>>> refs/remotes/origin/master
         }
     }
 }

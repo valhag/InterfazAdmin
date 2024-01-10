@@ -52,7 +52,11 @@
             // botonExcel1
             // 
             this.botonExcel1.Location = new System.Drawing.Point(20, 11);
+<<<<<<< HEAD
             this.botonExcel1.Margin = new System.Windows.Forms.Padding(2);
+=======
+            this.botonExcel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+>>>>>>> refs/remotes/origin/master
             this.botonExcel1.Name = "botonExcel1";
             this.botonExcel1.Size = new System.Drawing.Size(533, 29);
             this.botonExcel1.TabIndex = 41;
@@ -75,7 +79,10 @@
             this.label1.Size = new System.Drawing.Size(53, 17);
             this.label1.TabIndex = 43;
             this.label1.Text = "Cargos";
+<<<<<<< HEAD
             this.label1.Click += new System.EventHandler(this.label1_Click);
+=======
+>>>>>>> refs/remotes/origin/master
             // 
             // comboBox1
             // 
@@ -86,7 +93,10 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(346, 21);
             this.comboBox1.TabIndex = 42;
+<<<<<<< HEAD
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+=======
+>>>>>>> refs/remotes/origin/master
             // 
             // label2
             // 
@@ -119,7 +129,11 @@
             // botonExcel2
             // 
             this.botonExcel2.Location = new System.Drawing.Point(31, 197);
+<<<<<<< HEAD
             this.botonExcel2.Margin = new System.Windows.Forms.Padding(2);
+=======
+            this.botonExcel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+>>>>>>> refs/remotes/origin/master
             this.botonExcel2.Name = "botonExcel2";
             this.botonExcel2.Size = new System.Drawing.Size(533, 29);
             this.botonExcel2.TabIndex = 47;
