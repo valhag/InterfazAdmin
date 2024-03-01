@@ -235,8 +235,8 @@ namespace InterfazAdmin
             if (xfecha >= xfechalimite)
 
             {
-                MessageBox.Show("Error en configuracion");
-                return;
+                //MessageBox.Show("Error en configuracion");
+                //return;
             }
             foreach (DataGridViewRow x in dataGridView1.Rows)
             {
