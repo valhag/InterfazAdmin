@@ -171,7 +171,7 @@ namespace InterfazAdmin
                 bool incluyetimbrado = true;
                 long folio = 0;
                 listaerrores.Clear();
-                lrn.mGrabarDoctosComercial(1, ref folio,1,0);
+                //lrn.mGrabarDoctosComercial(1, ref folio,1,0);
                 if (listaerrores.Count != 0)
                 {
                     if (manual == 1)
