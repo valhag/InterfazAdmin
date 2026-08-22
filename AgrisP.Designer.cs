@@ -66,6 +66,8 @@ namespace InterfazAdmin
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.botonExcel2 = new controles.BotonExcel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -93,7 +95,7 @@ namespace InterfazAdmin
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(791, 289);
+            this.tabPage1.Size = new System.Drawing.Size(820, 289);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Catalogos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -111,12 +113,12 @@ namespace InterfazAdmin
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.botonExcel2);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.dateTimePicker2);
             this.tabPage2.Controls.Add(this.dateTimePicker1);
             this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.botonExcel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -225,7 +227,7 @@ namespace InterfazAdmin
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(633, 289);
+            this.tabPage3.Size = new System.Drawing.Size(820, 289);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Origen";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -320,6 +322,8 @@ namespace InterfazAdmin
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.textBox1);
             this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.label5);
             this.tabPage4.Controls.Add(this.txtPwdD);
@@ -332,7 +336,7 @@ namespace InterfazAdmin
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(633, 289);
+            this.tabPage4.Size = new System.Drawing.Size(820, 289);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Destino";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -344,7 +348,7 @@ namespace InterfazAdmin
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(400, 35);
             this.button1.TabIndex = 37;
-            this.button1.Text = "Test y Guardar";
+            this.button1.Text = "Probar Conexion/ Guardar Timbrado";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -446,6 +450,23 @@ namespace InterfazAdmin
             this.botonExcel2.Size = new System.Drawing.Size(814, 45);
             this.botonExcel2.TabIndex = 30;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(474, 29);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(115, 20);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "Timbrado clave";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(478, 64);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(232, 26);
+            this.textBox1.TabIndex = 41;
+            // 
             // AgrisP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -513,5 +534,7 @@ namespace InterfazAdmin
         private controles.BotonExcel botonExcel2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

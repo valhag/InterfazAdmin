@@ -88,6 +88,8 @@ namespace InterfazAdmin
             txtUser.Text = Properties.Settings.Default.userOrigen;
             txtPass.Text = Properties.Settings.Default.passwordO;
 
+            textBox1.Text = Properties.Settings.Default.Pass;
+
             lrn.mSeteaDirectorio(Directory.GetCurrentDirectory());
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
@@ -95,8 +97,13 @@ namespace InterfazAdmin
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
 
-            dateTimePicker2.Value = DateTime.Parse("07/17/2025");
-            dateTimePicker1.Value = DateTime.Parse("07/17/2025");
+            dateTimePicker2.Value = DateTime.Parse("08/17/2026");
+            dateTimePicker1.Value = DateTime.Parse("08/17/2026");
+
+            //dateTimePicker2.Value = DateTime.Parse("17/08/2026");
+            //dateTimePicker1.Value = DateTime.Parse("17/08/2026");
+
+
             botonExcel2.mSetearEtiqueta("Archivo Bitacora");
             botonExcel2.mGeneraNombre(1);
             botonExcel2.mAsignaTipo(1);
@@ -116,6 +123,7 @@ namespace InterfazAdmin
                 Properties.Settings.Default.database = txtBDD.Text;
                 Properties.Settings.Default.user = txtUsuarioD.Text;
                 Properties.Settings.Default.password = txtPwdD.Text;
+                Properties.Settings.Default.Pass = textBox1.Text;
                 Properties.Settings.Default.Save();
             }
             else
@@ -132,6 +140,7 @@ namespace InterfazAdmin
                 Properties.Settings.Default.databaseOrigen = txtBD.Text;
                 Properties.Settings.Default.userOrigen = txtUser.Text;
                 Properties.Settings.Default.passwordO = txtPass.Text;
+
                 Properties.Settings.Default.Save();
             }
             else
@@ -164,7 +173,7 @@ namespace InterfazAdmin
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (DateTime.Today.Year >= 2026)
+            if (DateTime.Today.Year >= 2027)
                 return;
 
             mProcesarCatalogos();
@@ -214,6 +223,8 @@ namespace InterfazAdmin
 
         private void mProcesarDocumentoAutomatico()
         {
+
+            listaerrores.Clear();
             List<RegDocto> lDoctos = new List<RegDocto>();
             DateTime fecha1 = DateTime.Today;
             DateTime fecha2 = DateTime.Today;
@@ -248,7 +259,15 @@ namespace InterfazAdmin
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (DateTime.Today.Year >= 2026)
+            listaerrores.Clear();
+            string lruta = "C:\\Compac\\Empresas\\" + txtBDD.Text;
+            //lruta = Properties.Settings.Default.RutaEmpresaADM;
+
+            Properties.Settings.Default.RutaEmpresaADM = lruta;
+            //RegConcepto Factura = (RegConcepto)comboBox1.SelectedItem;
+            //Properties.Settings.Default.Concepto = Factura.Codigo.Trim();
+            Properties.Settings.Default.Save();
+            if (DateTime.Today.Year >= 2028)
                 return;
 
             List<RegDocto> lDoctos = new List<RegDocto>();
@@ -286,7 +305,7 @@ namespace InterfazAdmin
                     //MessageBox.Show(lista[0].ToString());
                 }
                 else
-                    MessageBox.Show("Proceso Terminado");
+                    MessageBox.Show("Proceso Terminado.");
 
             }
             if (radioButton3.Checked)
@@ -308,16 +327,30 @@ namespace InterfazAdmin
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string lhoracatalogos = "22";
-            string lminutoscatalogos = "23";
+            string lhoracatalogos = "13";
+            string lminutoscatalogos = "0";
 
 
             if (DateTime.Now.Hour.ToString() == lhoracatalogos && DateTime.Now.Minute.ToString() == lminutoscatalogos && (DateTime.Now.Second > 1 && DateTime.Now.Second < 5))
             {
+                if (DateTime.Today.Year >= 2027)
+                    return;
                 mProcesarCatalogos();
                 mProcesarDocumentoAutomatico();
 
             }
+
+            lhoracatalogos = "17";
+            lminutoscatalogos = "0";
+            if (DateTime.Now.Hour.ToString() == lhoracatalogos && DateTime.Now.Minute.ToString() == lminutoscatalogos && (DateTime.Now.Second > 1 && DateTime.Now.Second < 5))
+            {
+                if (DateTime.Today.Year >= 2027)
+                    return;
+                mProcesarCatalogos();
+                mProcesarDocumentoAutomatico();
+
+            }
+
         }
     }
 }
