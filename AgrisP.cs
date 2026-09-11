@@ -112,6 +112,38 @@ namespace InterfazAdmin
 
             lsujeto.Registrar(this);
 
+
+            mCargaConceptos();
+
+        }
+
+        private void mCargaConceptos()
+        {
+
+            Properties.Settings.Default.RutaEmpresaADM = txtBDD.Text;
+            Properties.Settings.Default.Save();
+
+            List<RegConcepto> _RegFacturas = new List<RegConcepto>();
+            _RegFacturas = lrn.mCargarConceptosFacturaComercial();
+            
+            
+            if (_RegFacturas.Count > 0)
+            {
+                comboBox1.DataSource = null;
+                comboBox1.Items.Clear();
+                comboBox1.DataSource = _RegFacturas;
+                comboBox1.DisplayMember = "Nombre";
+                comboBox1.ValueMember = "Codigo";
+
+                
+                comboBox3.DataSource = null;
+                comboBox3.Items.Clear();
+                comboBox3.DataSource = _RegFacturas;
+                comboBox3.DisplayMember = "Nombre";
+                comboBox3.ValueMember = "Codigo";
+            }
+
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -350,6 +382,48 @@ namespace InterfazAdmin
                 mProcesarDocumentoAutomatico();
 
             }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int x =lrn.mBorrarDoctoPedimentos(comboBox1.Text, int.Parse(textBox2.Text));
+            MessageBox.Show("Documento Eliminado");
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo números y teclas de control como retroceso (Backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            List<RegDocto> lDoctos = new List<RegDocto>();
+            listaerrores.Clear();
+            string lruta = "C:\\Compac\\Empresas\\" + txtBDD.Text;
+            //lruta = Properties.Settings.Default.RutaEmpresaADM;
+
+            Properties.Settings.Default.RutaEmpresaADM = lruta;
+            Properties.Settings.Default.Save();
+
+            string codigoConcepto = comboBox3.SelectedValue.ToString();
+            string Serie = ((RegConcepto)comboBox3.SelectedItem).SeriePorOmision;
+
+
+            lrn.mLlenarDocumentosAgris("Facturas",textBox3.Text.ToString(), lDoctos, codigoConcepto, Serie);
+            lrn.mGrabarPagosAgris();
+            if (listaerrores.Count != 0)
+            {
+                MessageBox.Show("Existen errores por favor revise bitacora");
+                mGrabaErroresBitacora();
+                //MessageBox.Show(lista[0].ToString());
+            }
+            else
+                MessageBox.Show("Proceso Terminado.");
 
         }
     }
